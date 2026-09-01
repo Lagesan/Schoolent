@@ -1,18 +1,22 @@
 # Schoolent
 
-Schoolent 的临时品牌官网。当前版本以黑色、纯净、科技化的占位视觉呈现 Schoolent 的重构状态，并提供旗下在线项目入口：
+A temporary brand site for Schoolent. The current edition presents Schoolent in a quiet, black, technology-led holding state and links to the projects already online:
 
-- [KSC · 学生会透明门户](https://ksc.schoolent.cn)
-- [Yuvek · 升学探索](https://yuvek.schoolent.cn)
+- [KSC · Student Council Transparency Portal](https://ksc.schoolent.cn)
+- [Yuvek · Pathway Exploration](https://yuvek.schoolent.cn)
 
-## 本地运行
+## Local development
 
     npm install
     npm run dev
 
-生产构建：
+Production build:
 
     npm run build
     npm run preview
 
-构建结果输出到 dist/。Vite 使用相对资源路径，可部署到域名根目录或子路径。
+The production bundle is written to dist/. Vite uses relative asset paths, so the site can be hosted at a domain root or a subpath.
+
+## GitHub Pages deployment
+
+Before the first deployment, set Settings > Pages > Build and deployment > Source to GitHub Actions. Every push to main then triggers .github/workflows/deploy.yml; the workflow can also be run manually from the Actions page.
