@@ -57,10 +57,34 @@ if (finePointer && !reduceMotion) {
   );
 
   document.querySelectorAll(".project-card").forEach((card) => {
+    let cardFrame = 0;
+    let cardX = 0;
+    let cardY = 0;
+
     card.addEventListener("pointermove", (event) => {
       const box = card.getBoundingClientRect();
-      card.style.setProperty("--x", event.clientX - box.left + "px");
-      card.style.setProperty("--y", event.clientY - box.top + "px");
+      cardX = event.clientX - box.left;
+      cardY = event.clientY - box.top;
+      if (cardFrame) return;
+
+      cardFrame = window.requestAnimationFrame(() => {
+        const normalizedX = cardX / box.width - 0.5;
+        const normalizedY = cardY / box.height - 0.5;
+        card.style.setProperty("--x", cardX + "px");
+        card.style.setProperty("--y", cardY + "px");
+        card.style.setProperty("--rx", normalizedY * -2.4 + "deg");
+        card.style.setProperty("--ry", normalizedX * 2.8 + "deg");
+        cardFrame = 0;
+      });
+    });
+
+    card.addEventListener("pointerleave", () => {
+      if (cardFrame) {
+        window.cancelAnimationFrame(cardFrame);
+        cardFrame = 0;
+      }
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
     });
   });
 
