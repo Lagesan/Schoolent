@@ -4,6 +4,7 @@ A temporary brand site for Schoolent. The current edition presents Schoolent in 
 
 - [KSC · Student Council Transparency Portal](https://ksc.schoolent.cn)
 - [Yuvek · Pathway Exploration](https://yuvek.schoolent.cn)
+- [Mydeercafe · Campus Coffee Bar](https://cafe.schoolent.cn)
 
 ## Local development
 
